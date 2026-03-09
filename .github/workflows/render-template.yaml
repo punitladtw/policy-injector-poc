@@ -1,0 +1,21 @@
+name: Render Template
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pass on rendering valid template
+        run: bash render-template.sh policy.json
+
+      - name: Fail accessanalyzer on invalid policy
+        uses: bash render-template.sh invalid-policy.json
