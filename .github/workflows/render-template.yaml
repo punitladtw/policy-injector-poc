@@ -18,4 +18,4 @@ jobs:
         run: bash render-template.sh policy.json
 
       - name: Fail accessanalyzer on invalid policy
-        uses: bash render-template.sh invalid-policy.json
+        run: bash render-template.sh invalid-policy.json
