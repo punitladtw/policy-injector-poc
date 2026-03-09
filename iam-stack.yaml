@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: PoC - IAM Policy with injected policy document
+
+Resources:
+  MyIAMPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: InjectedPocPolicy
+      Description: Policy created via injected document
+      PolicyDocument: !Rain::Include ./policy.yaml
